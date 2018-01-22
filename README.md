@@ -13,6 +13,6 @@ The user has to move the player to the sea by using arrow in the keybord. but he
 
 
  - level 1 the player is Char-boy image and the item is Star
- - level 2 the player is char-princess-girl image and the item is Key
- - level 3 the player is char-horn-girl image and the item is Heart
+ - level 2 the player is char-princess-girl image and the item is Key and the speed of the enemy will be faster.
+ - level 3 the player is char-horn-girl image and the item is Heart and the speed of the enemy will be faster.
 
