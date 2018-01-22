@@ -79,7 +79,7 @@ var Engine = (function(global) {
      */
     function update(dt) {
         updateEntities(dt);
-        // checkCollisions();
+        checkCollisions();
     }
 
     /* This is called by the update function and loops through all of the
@@ -89,11 +89,15 @@ var Engine = (function(global) {
      * the data/properties related to the object. Do your drawing in your
      * render methods.
      */
+	function checkCollisions(){
+		player.checkCollisionsEntity();
+	}
     function updateEntities(dt) {
         allEnemies.forEach(function(enemy) {
             enemy.update(dt);
         });
         player.update();
+		star.ifCrash();
     }
 
     /* This function initially draws the "game level", it will then call
@@ -106,6 +110,7 @@ var Engine = (function(global) {
         /* This array holds the relative URL to the image used
          * for that particular row of the game level.
          */
+		
         var rowImages = [
                 'images/water-block.png',   // Top row is water
                 'images/stone-block.png',   // Row 1 of 3 of stone
@@ -137,8 +142,10 @@ var Engine = (function(global) {
                 ctx.drawImage(Resources.get(rowImages[row]), col * 101, row * 83);
             }
         }
+		
 
         renderEntities();
+		
     }
 
     /* This function is called by the render function and is called on each game
@@ -154,6 +161,8 @@ var Engine = (function(global) {
         });
 
         player.render();
+		star.render();
+		
     }
 
     /* This function does nothing but it could have been a good place to
@@ -173,7 +182,12 @@ var Engine = (function(global) {
         'images/water-block.png',
         'images/grass-block.png',
         'images/enemy-bug.png',
-        'images/char-boy.png'
+        'images/char-boy.png',
+		'images/Star.png',
+		'images/char-princess-girl.png',
+		'images/Key.png',
+		'images/Heart.png',
+		'images/char-horn-girl.png'
     ]);
     Resources.onReady(init);
 
